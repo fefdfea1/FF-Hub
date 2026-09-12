@@ -35,6 +35,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '카페 브랜드 사이트',
     year: '2026',
     image: '/works/maison-mocha.webp',
+    href: 'https://maison-mocha-five.vercel.app',
     gradient: 'linear-gradient(135deg,#2b2417,#a68a3b 50%,#f3e7b8)',
   },
   {
@@ -43,6 +44,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '카페 브랜드 사이트',
     year: '2026',
     image: '/works/noir-coffee.webp',
+    href: 'https://noircoffee-flax.vercel.app',
     gradient: 'linear-gradient(135deg,#151210,#4a3a2e 50%,#c8b199)',
   },
   {
@@ -51,6 +53,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '카페 브랜드 사이트',
     year: '2026',
     image: '/works/bon-coffee.webp',
+    href: 'https://bon-coffee-alpha.vercel.app',
     gradient: 'linear-gradient(135deg,#2b1d18 0%,#8c5a44 45%,#e9c9b2 100%)',
   },
   {
@@ -59,6 +62,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '카페 브랜드 사이트',
     year: '2026',
     image: '/works/cafe-muse.webp',
+    href: 'https://cafe-muse.vercel.app',
     gradient: 'linear-gradient(135deg,#2e1a12,#b6452c 50%,#f2e5cf)',
   },
   {
@@ -67,6 +71,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '포토그래퍼 포트폴리오',
     year: '2026',
     image: '/works/haram-portfolio.webp',
+    href: 'https://photograperportfolio.vercel.app',
     gradient: 'linear-gradient(135deg,#121212,#5a4a3a 50%,#d8c6ae)',
   },
 ];
