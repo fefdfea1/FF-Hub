@@ -1,0 +1,7 @@
+/* 페이지 전체 틀. 배경 장식이 밖으로 새지 않도록 잘라 낸다. */
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--ff-bg);
+}

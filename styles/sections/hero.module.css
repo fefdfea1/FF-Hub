@@ -1,0 +1,56 @@
+.section {
+  position: relative;
+  z-index: var(--ff-z-content);
+  /* 화면이 좁아질수록 위아래 여백도 함께 줄어든다. */
+  padding: clamp(70px, 8vw, 110px) var(--ff-page-pad);
+  max-width: var(--ff-page-max);
+  margin: 0 auto;
+}
+
+/* NEW 배지 */
+.badge {
+  padding: 6px 12px 6px 6px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.badgeMark {
+  padding: 3px 8px;
+  border-radius: var(--ff-radius-pill);
+  background: #fff;
+  color: var(--ff-bg-deep);
+  font-weight: 800;
+  font-size: 10px;
+}
+
+/* 그라디언트로 칠한 큰 제목 */
+.headline {
+  margin: 26px 0 0;
+  font-size: clamp(46px, 6.4vw, 92px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  max-width: 820px;
+  background: linear-gradient(180deg, #fff, #aeb8cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-wrap: pretty;
+}
+
+.lead {
+  margin: 26px 0 0;
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ff-fg-muted);
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+

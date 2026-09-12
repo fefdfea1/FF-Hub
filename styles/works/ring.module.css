@@ -1,0 +1,158 @@
+/* 3D 링 캐러셀 오버레이 */
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ff-z-ring);
+  color: var(--ff-fg);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.root:active {
+  cursor: grabbing;
+}
+
+/* 뒤쪽을 흐리게 덮는 배경. 카드가 날아오는 동안에는 투명하다. */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 10, 18, 0.5);
+  backdrop-filter: blur(12px);
+  transition: opacity 1s ease;
+}
+
+/* 원근을 담당하는 무대. 카드에만 포인터가 닿도록 한다. */
+.stage {
+  position: absolute;
+  inset: 0;
+  perspective: 1600px;
+  perspective-origin: 50% 50%;
+  pointer-events: none;
+}
+
+.stageInner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+/* 카드 바깥 래퍼 — 원형 배치와 비행을 담당한다. */
+.cardWrap {
+  position: absolute;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* 카드 본체 — 항상 정면을 보도록 되돌려 놓는다. */
+.card {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 18px;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(30, 37, 54, 0.97), rgba(14, 18, 28, 0.97));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cardMeta {
+  padding: 12px 4px 0;
+  font-size: 13px;
+}
+
+/*
+ * 카드가 좁을 때는 이름과 분류가 한 줄에 들어가지 않는다.
+ * 화면 폭이 아니라 "카드 폭"이 기준이므로 (링 반지름에서 계산된다)
+ * RingCard 가 붙여 주는 data-narrow 로 판단해 두 줄로 쌓는다.
+ * .card 를 함께 써서 공용 .meta 규칙보다 우선하게 한다.
+ */
+.card[data-narrow='true'] .cardMeta {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding-top: 8px;
+}
+
+/* 상단 안내 줄 */
+.topBar {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--ff-page-pad);
+  transition: opacity 1s ease;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--ff-fg-muted);
+}
+
+/* 자동 회전까지 남은 시간을 그리는 원 + 닫기 버튼 */
+.countdown {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: none;
+}
+
+.countdownRing {
+  position: absolute;
+  inset: 0;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+/* 카운트다운 원 안쪽을 5px 여백으로 정확히 채운다. */
+.countdownClose {
+  position: absolute;
+  inset: 5px;
+  /* 바깥의 카운트다운 원이 테두리 역할을 하므로 자체 테두리는 없앤다. */
+  border: none;
+  background: var(--ff-glass-3);
+}
+
+/* 하단 좌우 이동 버튼 */
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  transition: opacity 1s ease;
+}
+
+/*
+ * 모바일에서는 조작 안내 문구를 감춘다.
+ * 휠·드래그 설명이 의미가 없고, 닫기 버튼만 남기는 편이 화면을 덜 가린다.
+ */
+@media (max-width: 639px) {
+  .hint {
+    display: none;
+  }
+
+  .topBar {
+    justify-content: flex-end;
+  }
+
+  .controls {
+    bottom: 28px;
+  }
+}

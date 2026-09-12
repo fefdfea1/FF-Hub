@@ -1,0 +1,55 @@
+.nav {
+  position: relative;
+  z-index: var(--ff-z-content);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px var(--ff-page-pad);
+  font-size: 13px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.brandMark {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #fff, #7d8aa5);
+}
+
+/* 가운데 내비게이션 묶음 */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: var(--ff-radius-pill);
+  background: var(--ff-glass-2);
+  border: 1px solid var(--ff-line);
+  backdrop-filter: blur(10px);
+}
+
+/*
+ * 모바일에서는 메뉴를 감추지 않고 로고·문의 버튼 아래 한 줄을 통째로 차지하게 한다.
+ * (시안의 order 3 · flex 1 0 100% 규칙)
+ */
+@media (max-width: 639px) {
+  .menu {
+    order: 3;
+    flex: 1 0 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu {
+    font-size: 12px;
+    gap: 0;
+  }
+}

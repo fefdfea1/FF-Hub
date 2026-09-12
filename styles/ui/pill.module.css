@@ -1,0 +1,91 @@
+/* 알약(pill) 모양 표면 — 내비게이션, 배지, 버튼이 함께 쓴다. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--ff-radius-pill);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.pill:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* --- 크기 --- */
+.sm {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.md {
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lg {
+  padding: 13px 22px;
+  font-size: 14px;
+}
+
+/* --- 색 --- */
+
+/* 흰 배경의 주요 동작 */
+.solid {
+  background: #fff;
+  color: var(--ff-bg-deep);
+  font-weight: 800;
+}
+
+.solid:hover {
+  transform: translateY(-1px);
+}
+
+/* 테두리만 있는 보조 동작 */
+.outline {
+  background: var(--ff-glass-1);
+  border-color: var(--ff-line-strong);
+  color: inherit;
+}
+
+.outline:hover {
+  background: var(--ff-glass-3);
+}
+
+/* 배경 위에 얹히는 반투명 표면 */
+.glass {
+  background: var(--ff-glass-2);
+  border-color: var(--ff-line);
+  color: inherit;
+  backdrop-filter: blur(10px);
+}
+
+.glass:hover {
+  background: var(--ff-glass-strong);
+}
+
+/* 배경이 없는 내비게이션 링크 */
+.ghost {
+  background: transparent;
+  color: inherit;
+  font-weight: 500;
+}
+
+.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* CTA 발광 효과 */
+.glow {
+  box-shadow: 0 0 40px rgba(180, 200, 255, 0.25);
+  animation: ff-pulse 3s ease-in-out infinite;
+}

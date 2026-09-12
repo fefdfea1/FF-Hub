@@ -1,0 +1,31 @@
+/* 섹션 머리말 — Works / Services 섹션이 공유한다. */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--ff-fg-muted);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.title {
+  margin: 10px 0 0;
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  margin: 16px 0 0;
+  max-width: 320px;
+  color: var(--ff-fg-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}

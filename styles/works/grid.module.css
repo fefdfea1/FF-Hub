@@ -1,0 +1,76 @@
+.section {
+  position: relative;
+  z-index: var(--ff-z-content);
+  padding: 40px var(--ff-page-pad) 30px;
+  max-width: var(--ff-page-max);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+/* 링이 열리면 그리드와 더보기 버튼을 감춘다(자리는 유지). */
+.interaction {
+  --ff-grid-visibility: visible;
+}
+
+.interaction[data-ring-open='true'] {
+  --ff-grid-visibility: hidden;
+}
+
+.grid {
+  display: grid;
+  /* 카드 최소 폭이 화면보다 넓어도 넘치지 않도록 min() 으로 막는다. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 16px;
+}
+
+.card {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer;
+  padding: 14px;
+  border-radius: var(--ff-radius-card);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--ff-line);
+  backdrop-filter: blur(14px);
+  transform: perspective(900px);
+  visibility: var(--ff-grid-visibility, visible);
+  transition:
+    transform 0.15s ease-out,
+    border-color 0.3s ease;
+  /* 스크롤로 들어올 때 떠오르는 연출. 지원하지 않는 브라우저는 그냥 보인다. */
+  animation: ff-rise 1ms linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 45%;
+}
+
+.card:hover {
+  border-color: var(--ff-line-hover);
+}
+
+.cardMeta {
+  padding: 16px 6px 4px;
+}
+
+.more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 44px;
+  visibility: var(--ff-grid-visibility, visible);
+}
+
+.moreButton {
+  padding: 15px 28px;
+  font-size: 14px;
+  font-weight: 800;
+}

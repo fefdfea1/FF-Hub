@@ -1,0 +1,59 @@
+/* 시안에서 쓰는 키프레임 모음 */
+
+/* 히어로 배경의 별 오브제가 위아래로 떠다니는 움직임 */
+@keyframes ff-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -18px);
+  }
+}
+
+/* 주요 CTA 버튼의 숨 쉬는 듯한 발광 */
+@keyframes ff-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 40px rgba(180, 220, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 80px rgba(180, 220, 255, 0.5);
+  }
+}
+
+/* 스크롤 진입 시 카드가 떠오르는 연출 / 모달 등장 */
+@keyframes ff-rise {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 모달이 아래로 가라앉으며 사라지는 연출 */
+@keyframes ff-sink {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+/* 움직임을 줄이도록 설정한 사용자에게는 모든 반복 연출을 멈춘다. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

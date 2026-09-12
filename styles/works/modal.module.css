@@ -1,0 +1,114 @@
+/* 작품 상세 모달 */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ff-z-modal);
+  background: rgba(6, 6, 8, 0.78);
+  backdrop-filter: blur(18px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+
+  /*
+   * 열고 닫는 연출은 keyframes 가 아니라 transition 으로 한다.
+   * keyframes 로 하면 열리는 도중에 닫을 때 닫힘이 "불투명도 1" 부터 새로 시작해
+   * 모달이 확 나타났다가 사라진다. transition 은 지금 값에서 바로 되돌아간다.
+   */
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+
+/* 열린 상태. 이 클래스가 붙고 떨어지는 것만으로 양방향 연출이 된다. */
+.open {
+  opacity: 1;
+}
+
+.dialog {
+  width: min(960px, 100%);
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  background: #111114;
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+
+  /* 배경보다 조금 더 길게 떠올라, 닫을 때도 같은 길로 되돌아간다. */
+  transform: translateY(48px);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.open .dialog {
+  transform: none;
+}
+
+.preview {
+  aspect-ratio: 16 / 9;
+  min-height: 160px;
+  flex: 1 1 auto;
+  border: none;
+  border-radius: 0;
+}
+
+/*
+ * 이전/다음으로 작품을 넘길 때의 전환.
+ * 내용이 한 번 사라진 뒤 바뀌고 다시 나타나, 두 작품이 겹쳐 보이지 않는다.
+ * 시간은 WorkModal 의 FADE_MS 와 맞춰야 한다.
+ */
+.fade {
+  transition: opacity 0.24s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 28px;
+  flex-wrap: wrap;
+  flex: none;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.title {
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.visit {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.visitDisabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .footer {
+    padding: 18px 20px;
+  }
+}

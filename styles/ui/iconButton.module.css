@@ -1,0 +1,41 @@
+/* 원형 아이콘 버튼 — 모달의 이전/다음/닫기, 링의 이전/다음/닫기가 공유한다. */
+.button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  line-height: 1;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* 테두리가 있는 기본형 */
+.bordered {
+  border: 1px solid var(--ff-line-strong);
+}
+
+.bordered:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 링 컨트롤 — 유리 배경까지 깔린 형태 */
+.filled {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--ff-glass-3);
+}
+
+.filled:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* 배경 없는 닫기 버튼 */
+.plain {
+  opacity: 0.6;
+}
+
+.plain:hover {
+  opacity: 1;
+}

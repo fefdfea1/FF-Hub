@@ -1,0 +1,47 @@
+@import './tokens.css';
+@import './animations.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ff-bg);
+  color: var(--ff-fg);
+  font-family: var(--ff-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 시안과 동일하게 스크롤바를 감춘다. */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 링 캐러셀이 열려 있는 동안 본문 스크롤을 잠근다. */
+body[data-ring-open='true'] {
+  overflow: hidden;
+}
+
+/* 키보드 포커스는 항상 눈에 보이도록 남겨 둔다. */
+:focus-visible {
+  outline: 2px solid var(--ff-fg-strong);
+  outline-offset: 3px;
+  border-radius: 6px;
+}

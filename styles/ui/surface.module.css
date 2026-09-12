@@ -1,0 +1,58 @@
+/* 유리 패널 — About/Contact 카드, 내비게이션 묶음 등이 공유한다. */
+.panel {
+  border: 1px solid var(--ff-line);
+  border-radius: var(--ff-radius-card);
+  background: var(--ff-glass-1);
+}
+
+.panelSoft {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.panelRaised {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  border-color: var(--ff-line-strong);
+}
+
+.pad {
+  padding: 34px;
+}
+
+/* 썸네일 면 — 그리드 카드 / 링 카드 / 상세 화면이 공유한다. */
+.thumb {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--ff-radius-inner);
+  /* 이미지가 뜨기 전까지 보이는 바탕 */
+  background-image: var(--thumb-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 면의 비율이 제각각이라 이미지를 채운 뒤 위쪽 기준으로 잘라 낸다. */
+.thumbImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* 작품 이름 + 분류·연도 한 줄 */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.metaName {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.metaSub {
+  color: var(--ff-fg-muted);
+  white-space: nowrap;
+}

@@ -1,0 +1,72 @@
+/* 페이지 전체에 깔리는 배경 장식. 내용 뒤에서 움직이지 않는다. */
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: var(--ff-z-decor);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* 격자 무늬. 위쪽만 보이도록 방사형 마스크를 씌운다. */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
+}
+
+/* 상단 중앙의 푸른 광원 */
+.glow {
+  position: absolute;
+  left: 50%;
+  top: -200px;
+  width: 1100px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(120, 150, 210, 0.28), transparent 60%);
+  filter: blur(40px);
+}
+
+/* 네 갈래 별 오브제 */
+.star {
+  position: absolute;
+  clip-path: polygon(50% 0, 57% 43%, 100% 50%, 57% 57%, 50% 100%, 43% 57%, 0 50%, 43% 43%);
+  background: linear-gradient(135deg, #fff, #7d8aa5 45%, #e6ecf7 60%, #4a5670);
+}
+
+.starLarge {
+  right: 16%;
+  top: 16%;
+  width: 260px;
+  height: 260px;
+  animation: ff-drift 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(180, 200, 255, 0.5));
+}
+
+.starSmall {
+  right: 11%;
+  top: 30%;
+  width: 110px;
+  height: 110px;
+  opacity: 0.8;
+  animation: ff-drift 9s ease-in-out infinite reverse;
+}
+
+/* 태블릿 이하에서는 장식 오브제를 줄여 본문을 가리지 않게 한다. */
+@media (max-width: 1023px) {
+  .starLarge {
+    width: 170px;
+    height: 170px;
+    right: 8%;
+  }
+
+  .starSmall {
+    width: 74px;
+    height: 74px;
+    right: 4%;
+  }
+}
