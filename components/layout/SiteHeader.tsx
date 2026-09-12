@@ -9,10 +9,7 @@ import styles from '@/styles/layout/header.module.css';
 export default function SiteHeader() {
   return (
     <nav className={styles.nav}>
-      <span className={styles.brand}>
-        <span className={styles.brandMark} aria-hidden />
-        {site.name}
-      </span>
+      <span className={styles.brand}>{site.name}</span>
 
       <div className={styles.menu}>
         {site.nav.map((item) => (

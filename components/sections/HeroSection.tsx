@@ -31,7 +31,7 @@ export default function HeroSection() {
           작품 보기 →
         </ScrollToButton>
         <PillLink href={`#${anchors.about}`} variant="outline" size="lg">
-          스튜디오 소개
+          소개 보기
         </PillLink>
       </div>
     </section>

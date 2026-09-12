@@ -11,17 +11,7 @@
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-weight: 800;
-}
-
-.brandMark {
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #fff, #7d8aa5);
 }
 
 /* 가운데 내비게이션 묶음 */
