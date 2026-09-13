@@ -71,7 +71,7 @@ const WORK_INPUTS: WorkInput[] = [
     category: '포토그래퍼 포트폴리오',
     year: '2026',
     image: '/works/haram-portfolio.webp',
-    href: 'https://photograperportfolio.vercel.app',
+    href: 'https://photograperportfolio.vercel.app/',
     gradient: 'linear-gradient(135deg,#121212,#5a4a3a 50%,#d8c6ae)',
   },
 ];
