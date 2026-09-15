@@ -66,6 +66,15 @@ const WORK_INPUTS: WorkInput[] = [
     gradient: 'linear-gradient(135deg,#2e1a12,#b6452c 50%,#f2e5cf)',
   },
   {
+    id: 'hotel-axis',
+    name: '액시스 레지던스',
+    category: '호텔 레지던스 사이트',
+    year: '2026',
+    image: '/works/hotel-axis.webp',
+    href: 'https://hotelaxis.vercel.app/ko',
+    gradient: 'linear-gradient(135deg,#0e1216,#2c3b49 50%,#d3bb95)',
+  },
+  {
     id: 'haram-portfolio',
     name: '하람 사진',
     category: '포토그래퍼 포트폴리오',
