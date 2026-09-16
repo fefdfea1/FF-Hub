@@ -75,6 +75,15 @@ const WORK_INPUTS: WorkInput[] = [
     gradient: 'linear-gradient(135deg,#0e1216,#2c3b49 50%,#d3bb95)',
   },
   {
+    id: 'hansung-precision',
+    name: '한성정밀',
+    category: '제조업 회사소개 사이트',
+    year: '2026',
+    image: '/works/hansung-precision.webp',
+    href: 'https://hansung-precision.vercel.app',
+    gradient: 'linear-gradient(135deg,#1f232b,#3a5f8a 50%,#f3efe7)',
+  },
+  {
     id: 'haram-portfolio',
     name: '하람 사진',
     category: '포토그래퍼 포트폴리오',
